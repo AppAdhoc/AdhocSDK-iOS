@@ -14,31 +14,11 @@
 NS_CLASS_AVAILABLE_IOS(7_0) @interface AdhocSDK : NSObject
 
 /**
- *  控制SDK调试按钮显隐
+ *  控制SDK调试按钮显隐，（若显示，getflag与track接口访问实时处理，设置的时间间隔无效）
  *
  *  @param show 如果设置为YES，显示调试按钮，否则隐藏
  */
 + (void)showDebugAssistive:(BOOL)show;
-
-/**
- *  设置用户实验变量
- */
-+ (void)setTrackProperty:(NSDictionary *)property;
-
-/**
- *  SDK内部在APP每次切到前台时更新本地flags缓存，设置该时间间隔避免用户在较短时间内频繁切换造
- ＊ 成不必要的损失
- *
- *  @param second 时间间隔，单位秒(s)
- */
-+ (void)setGapTimeGetFlag:(NSTimeInterval)second;
-
-/**
- *  获取当前设备所在实验的实验名列表
- *
- *  @return 实验名数组
- */
-+ (NSArray *)getCurrentExperiments;
 
 /**
  *  获取后台设置的指定的实验变量的值，实验变量的名字注意与后台保持一致
@@ -88,6 +68,13 @@ NS_CLASS_AVAILABLE_IOS(7_0) @interface AdhocSDK : NSObject
 + (void)track:(NSString *)stat_name value:(NSNumber*)stat_value;
 
 /**
+ *  获取当前设备所在实验的实验名列表
+ *
+ *  @return 实验名数组
+ */
++ (NSArray *)getCurrentExperiments;
+
+/**
  *  强制当前设备进入实验，用于开发测试，查看效果
  *
  *  @param qrCode 指定实验的二维码，可以通过官方的扫码工具扫描实验二维码进入实验
@@ -101,5 +88,31 @@ NS_CLASS_AVAILABLE_IOS(7_0) @interface AdhocSDK : NSObject
  *  @param block  该接口执行后的回调
  */
 + (void)forceToQuitExperimentsFinished:(void (^)(BOOL result, NSError *error))block;
+
+
+/*
+ ===============================================================================
+ 如下set函数须要在函数@selector(application:didFinishLaunchingWithOptions:)内进行设置
+ ===============================================================================
+ */
+/**
+ *  设置用户实验变量
+ */
++ (void)setTrackProperty:(NSDictionary *)property;
+
+/**
+ *  设置统计数据发送的时间间隔，默认为3600s，仅在调试按钮隐藏时有效
+ *
+ *  @param second 时间间隔，单位秒(s)
+ */
++ (void)setGapTimeTrack:(NSTimeInterval)second;
+
+/**
+ *  SDK内部在APP每次切到前台时更新本地flags缓存，设置该时间间隔避免用户在较短时间内频繁切换造
+ ＊ 成不必要的损失,默认为3600s，仅在调试按钮隐藏时有效
+ *
+ *  @param second 时间间隔，单位秒(s)
+ */
++ (void)setGapTimeGetFlag:(NSTimeInterval)second;
 
 @end
