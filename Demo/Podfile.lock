@@ -1,5 +1,5 @@
 PODS:
-  - AdhocSDK (2.3.0)
+  - AdhocSDK (2.3.3)
 
 DEPENDENCIES:
   - AdhocSDK (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AdhocSDK: 394f76d7aec05164afc522ab778f78f9b5099613
+  AdhocSDK: 8d6e6305bfd85ae08ad8e6084ade30a5784e5732
 
 PODFILE CHECKSUM: 687937121702026b8eafd055fcc8f749d54a8b44
 

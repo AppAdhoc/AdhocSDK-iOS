@@ -20,11 +20,6 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (IBAction)btnClick:(UIButton *)btn {
     if (btn.tag == 1) {
         BOOL f1 = [[AdhocSDK getFlag:@"f1" default:@NO] boolValue];
@@ -50,10 +45,7 @@
     } else if (btn.tag == 4) {
         [AdhocSDK track:@"t1" value:@1];
     } else if (btn.tag == 5) {
-        __unused BOOL f1 = [[AdhocSDK synchronousGetFlag:@"f1"
-                                   defaultValue:@NO
-                                timeoutInterval:3
-                                          error:nil] boolValue];
+        [AdhocSDK track:@"t1" value:@1 attribute:@{@"name": @"aa"}];
     } else if (btn.tag == 6) {
         [AdhocSDK asynchronousGetFlag:@"f1"
                          defaultValue:@NO

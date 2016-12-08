@@ -15,16 +15,27 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    //创建用于SDK启动的配置实例
+    AdhocSDKConfig *config = [AdhocSDKConfig defaultConfig];
+    
+    //设置appKey
+    config.appKey = @"ADHOC_c6655b28-12b9-49c7-8987-af337eff73f4";
+    
+    //是否显示调试按钮
 #ifdef DEBUG
-    [AdhocSDK showDebugAssistive:YES];
+    config.debugAssistiveShow = YES;
 #else
-    [AdhocSDK showDebugAssistive:NO];
+    config.debugAssistiveShow = NO;
 #endif
-    [AdhocSDK setGapTimeGetFlag:(1*60*60)]; //设置时间间隔为1h
-    [AdhocSDK setTrackProperty:@{@"gender": @"boy"}]; //设置用户属性
+    
+    //设置用户标签
+    config.customProperty = @{@"gender": @"boy"};
+    
+    //启动SDK
+    [AdhocSDK startWithConfigure:config options:launchOptions];
+    
     
     return YES;
 }
