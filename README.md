@@ -1,15 +1,15 @@
-#AdhocSDK-iOS
+# AdhocSDK-iOS
 SDK repo for the [**AppAdhoc**](https://www.appadhoc.com) iOS SDK binary and Cocoapods install. 
 
 We support all build targets for iOS 7.0 and above. Enable Bitcode, and support ARC.
 
 
-#安装
-###CocoaPods
+# 安装
+### CocoaPods
 1. 在 Podfile 中添加 `pod 'AdhocSDK'`.
 2. 执行 `pod install`.
 
-###手动安装
+### 手动安装
 1. 官方下载[最新版SDK](http://doc.appadhoc.com/sdk/iosSDK.html).
 2. 将下载得到的`AdhocSDK.framework`文件添加到指定的工程.
 3. 添加编译参数 `-ObjC`.
@@ -18,7 +18,7 @@ We support all build targets for iOS 7.0 and above. Enable Bitcode, and support 
    - libicucore.tbd (若SDK支持可视化须链接)
 
 
-#权限设置
+# 权限设置
 1. SDK调试页面有扫码功能，须授权相机访问:
 > `<key>NSCameraUsageDescription</key>`
 > `<string>App需要您的同意,才能访问相机</string>`
@@ -27,7 +27,7 @@ We support all build targets for iOS 7.0 and above. Enable Bitcode, and support 
 > `Target -> Capabilities -> Keychain Sharing -> ON`
 
 
-#使用说明
+# 使用说明
 1. SDK的初始化操作须在 `@selector(application:didFinishLaunchingWithOptions:)`中执行：
 >
 ```
@@ -67,6 +67,6 @@ We support all build targets for iOS 7.0 and above. Enable Bitcode, and support 
 }
 ```
 
-#####如有任何问题，详见[官方文档](http://doc.appadhoc.com/sdk/iosSDK.html).
+##### 如有任何问题，详见[官方文档](http://doc.appadhoc.com/sdk/iosSDK.html).
 
 
