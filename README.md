@@ -32,15 +32,15 @@ We support all build targets for iOS 7.0 and above. Enable Bitcode, and support 
 >
 ```
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    	AdhocSDKConfig *config = [AdhocSDKConfig defaultConfig];
-    	config.appKey = @"ADHOC_xxx"; //必填项，通过官网申请得到 
-    	config.debugAssistiveShow = YES; //显示调试按钮，用于开发调试
-    	config.crashTrackEnabled = YES; //统计崩溃次数
-    	config.sessionTrackEnabled = YES; //统计APP访问次数
-    	config.durationTrackEnabled = YES; //统计访问时长
-    	[AdhocSDK startWithConfigure:config options:launchOptions];
->
-    	return YES;
+    AdhocSDKConfig *config = [AdhocSDKConfig defaultConfig];
+    config.appKey = @"ADHOC_xxx"; //必填项，通过官网申请得到
+    config.debugAssistiveShow = YES; //显示调试按钮，用于开发调试
+    config.crashTrackEnabled = YES; //统计崩溃次数
+    config.sessionTrackEnabled = YES; //统计APP访问次数
+    config.durationTrackEnabled = YES; //统计访问时长
+    [AdhocSDK startWithConfigure:config options:launchOptions];
+    //sth.
+    return YES;
 }
 ```
 
@@ -48,14 +48,14 @@ We support all build targets for iOS 7.0 and above. Enable Bitcode, and support 
 >
 ```
 - (void)viewWillAppear:(BOOL)animated {
-    	[super viewWillAppear:animated];
-    	//获取Boolean类型的试验变量isNewHomePage的值
-    	BOOL isNewHomePage = [[AdhocSDK getFlag:@"isNewHomePage" default:@(NO)] boolValue];
-    	if (isNewHomePage) {
-        	//跳转至新首页
-    	} else {
-        	//跳转至新旧首页
-    	}
+    [super viewWillAppear:animated];
+    //获取Boolean类型的试验变量isNewHomePage的值
+    BOOL isNewHomePage = [[AdhocSDK getFlag:@"isNewHomePage" default:@(NO)] boolValue];
+    if (isNewHomePage) {
+        //跳转至新首页
+    } else {
+        //跳转至新旧首页
+    }
 }
 ```
 
@@ -63,7 +63,7 @@ We support all build targets for iOS 7.0 and above. Enable Bitcode, and support 
 >
 ```
 - (IBAction)btnClicked:(id)sender {
-    	[AdhocSDK track:@"clickTimes" value:@(1)];
+    [AdhocSDK track:@"clickTimes" value:@(1)];
 }
 ```
 
