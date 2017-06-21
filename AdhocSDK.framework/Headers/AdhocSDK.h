@@ -16,8 +16,8 @@
 @property (nonatomic, copy) NSString *clientID; //自定义clientid，如无特殊需求，不需要设置
 @property (nonatomic) BOOL debugAssistiveShow; //是否显示调试按钮，默认为NO，不显示（若显示，getflag与track接口访问实时处理，设置的时间间隔无效）
 @property (nonatomic) BOOL crashTrackEnabled;  //是否统计crash次数，默认为NO，不进行统计
-@property (nonatomic) BOOL sessionTrackEnabled; //是否统计APP访问次数，默认为NO，不进行统计
-@property (nonatomic) BOOL durationTrackEnabled; //是否统计APP一次访问的时长，默认为NO，不进行统计
+@property (nonatomic) BOOL sessionTrackEnabled; //是否统计APP访问次数，默认为YES，进行统计
+@property (nonatomic) BOOL durationTrackEnabled; //是否统计APP一次访问的时长，默认为YES，进行统计
 @property (nonatomic) NSTimeInterval backgroundInterval; //设置app后台允许的最大停留时长，单位秒(s)，在该时间内切换，SDK认定为同一次访问，默认为30分钟(1800s)
 @property (nonatomic, copy) NSDictionary *customProperty; //设置定向条件
 + (id)defaultConfig;
