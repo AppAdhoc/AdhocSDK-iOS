@@ -1,4 +1,9 @@
 change list:
+
+v3.1   (2017-07-27)
+	1.支持tableview/collectionview可视化功能
+	2.SDK性能优化
+
 v3.0.2 (2017-06-15)
 	1.禁用tableview可视化功能
 	2.修改本地flags更新逻辑
