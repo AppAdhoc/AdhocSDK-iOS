@@ -1,5 +1,8 @@
 change list:
 
+v3.1.1   (2017-08-08)
+	1.bug fix (解决继承导致的崩溃)
+	
 v3.1   (2017-07-27)
 	1.支持tableview/collectionview可视化功能
 	2.SDK性能优化
