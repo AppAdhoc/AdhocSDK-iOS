@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "AdhocSDK"
-  s.version      = "3.1.3"
+  s.version      = "3.1.3.03"
   s.summary      = "Official AdhocSDK for iOS."
   s.description  = <<-DESC
                    The Adhoc static lib for iOS makes it easy for A/B test.
