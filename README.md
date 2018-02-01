@@ -1,7 +1,7 @@
 # AdhocSDK-iOS
 SDK repo for the [**AppAdhoc**](https://www.appadhoc.com) iOS SDK binary and Cocoapods install. 
 
-We support all build targets for iOS 7.0 and above. Enable Bitcode, and support ARC.
+We support all build targets for iOS 8.0 and above. Enable Bitcode, and support ARC.
 
 
 # 安装

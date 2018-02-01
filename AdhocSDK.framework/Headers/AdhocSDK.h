@@ -5,9 +5,11 @@
 //  Created by xxx on 16/10/26.
 //  Copyright © 2016年 AppAdhoc. All rights reserved.
 //
+//  当前SDK版本:3.1.4.1
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
+@class WKWebView;
 /**
  *  配置实例，用于SDK启动
  */
@@ -83,5 +85,21 @@ NS_CLASS_AVAILABLE_IOS(7_0) @interface AdhocSDK : NSObject
  *  @return 实验名数组
  */
 + (NSArray *)getCurrentExperiments;
+
+/**
+ UIWebView调用flag接口
+ 
+ @param request 加载链接的request
+ @param webView 当前的UIWebView
+ */
++ (BOOL)adhocUIWebViewExecute:(NSURLRequest *)request webView:(UIWebView *)webView;
+
+/**
+ WKWebView调用flag接口
+ 
+ @param request 加载链接的request
+ @param webView 当前的WKWebView
+ */
++ (BOOL)adhocWKWebViewExecute:(NSURLRequest *)request webView:(WKWebView *)webView;
 
 @end
