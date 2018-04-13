@@ -34,7 +34,7 @@ We support all build targets for iOS 8.0 and above. Enable Bitcode, and support 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     AdhocSDKConfig *config = [AdhocSDKConfig defaultConfig];
     config.appKey = @"ADHOC_xxx"; //必填项，通过官网申请得到
-    config.debugAssistiveShow = YES; //显示调试按钮，用于开发调试
+    config.enableDebugAssist = YES; //显示调试按钮，用于开发调试
     config.crashTrackEnabled = YES; //统计崩溃次数
     config.sessionTrackEnabled = YES; //统计APP访问次数
     config.durationTrackEnabled = YES; //统计访问时长
@@ -64,6 +64,20 @@ We support all build targets for iOS 8.0 and above. Enable Bitcode, and support 
 ```
 - (IBAction)btnClicked:(id)sender {
     [AdhocSDK track:@"clickTimes" value:@(1)];
+}
+```
+
+4. 使用UIWebView或WKWebView加载链接，在h5界面做实验需要在对应的WebView添加如下方法：
+>
+```
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    [AdhocSDK adhocUIWebViewExecute:request webView:webView];
+    return YES;
+}
+
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+    [AdhocSDK adhocWKWebViewExecute:navigationAction.request webView:webView];
+    decisionHandler(WKNavigationActionPolicyAllow);
 }
 ```
 
