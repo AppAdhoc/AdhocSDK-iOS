@@ -5,7 +5,7 @@
 //  Created by xxx on 16/10/26.
 //  Copyright © 2016年 AppAdhoc. All rights reserved.
 //
-//  当前SDK版本:3.1.6
+//  当前SDK版本:4.0.0
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
@@ -113,5 +113,6 @@ NS_CLASS_AVAILABLE_IOS(8_0) @interface AdhocSDK : NSObject
 @end
 
 @interface UIView (Adhoc)
+
 @property (nonatomic, copy) NSString * adhoc_idf; //用户指定控件唯一标识,目前只支持index(数字)，例:cell.adhoc_idf = @"1";
 @end
