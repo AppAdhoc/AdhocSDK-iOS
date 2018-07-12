@@ -5,7 +5,7 @@
 //  Created by xxx on 16/10/26.
 //  Copyright © 2016年 AppAdhoc. All rights reserved.
 //
-//  当前SDK版本:4.0.0
+//  当前SDK版本:4.0.1
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
