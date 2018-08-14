@@ -38,6 +38,7 @@ We support all build targets for iOS 8.0 and above. Enable Bitcode, and support 
     config.crashTrackEnabled = YES; //统计崩溃次数
     config.sessionTrackEnabled = YES; //统计APP访问次数
     config.durationTrackEnabled = YES; //统计访问时长
+    config.reportImmediatelyEnabled = YES; //时时上报开关
     [AdhocSDK startWithConfigure:config options:launchOptions];
     //sth.
     return YES;
