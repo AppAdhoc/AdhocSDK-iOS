@@ -5,7 +5,7 @@
 //  Created by AppAdhoc on 16/10/26.
 //  Copyright © 2016年 AppAdhoc. All rights reserved.
 //
-//  当前 SDK 版本：4.1.0
+//  当前 SDK 版本：4.2.0
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
@@ -45,6 +45,19 @@ NS_CLASS_AVAILABLE_IOS(8_0) @interface AdhocSDK : NSObject
  *  @return 根据后台设置的模块的类型，返回 Objective-C 中对应的类型可能为(NSNumber, NSString)
  */
 + (id)getFlag:(NSString *)flag_name default:(id)default_value;
+
+/**
+ *  异步方式从缓存直接获取实验变量的值，并检查更新本地flags数据
+ *
+ *  @param flag_name     adhoc后台设置的实验变量名字
+ *  @param default_value 指定实验变量的默认值
+ *  @param timeout       设置此次网络请求的超时时间，单位为秒(s)，默认1
+ *  @param handler       网络执行结束后的相关操作
+ */
++ (void)getFlagFast:(NSString *)flag_name
+               defaultValue:(id)default_value
+            timeoutInterval:(NSTimeInterval)timeout
+          completionHandler:(void (^)(id flag_value, NSError *error))handler;
 
 /**
  *  异步方式从服务器直接获取实验变量的值

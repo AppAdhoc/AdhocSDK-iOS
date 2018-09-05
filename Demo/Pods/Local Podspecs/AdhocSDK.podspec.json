@@ -1,6 +1,6 @@
 {
   "name": "AdhocSDK",
-  "version": "3.1.4",
+  "version": "4.2.0",
   "summary": "Official AdhocSDK for iOS.",
   "description": "The Adhoc static lib for iOS makes it easy for A/B test.",
   "homepage": "https://www.appadhoc.com/",
@@ -16,7 +16,7 @@
   },
   "source": {
     "git": "https://github.com/AppAdhoc/AdhocSDK-iOS.git",
-    "tag": "3.1.4"
+    "tag": "4.2.0"
   },
   "preserve_paths": "AdhocSDK.framework",
   "vendored_frameworks": "AdhocSDK.framework",

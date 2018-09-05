@@ -25,9 +25,9 @@
     
     //是否显示调试按钮
 #ifdef DEBUG
-    config.debugAssistiveShow = YES;
+    config.enableDebugAssist = YES;
 #else
-    config.debugAssistiveShow = NO;
+    config.enableDebugAssist = NO;
 #endif
     
     //设置用户标签

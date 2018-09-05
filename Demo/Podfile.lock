@@ -1,16 +1,16 @@
 PODS:
-  - AdhocSDK (3.1.4)
+  - AdhocSDK (4.2.0)
 
 DEPENDENCIES:
   - AdhocSDK (from `../`)
 
 EXTERNAL SOURCES:
   AdhocSDK:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  AdhocSDK: 5c16e19f68d25dbc8670324c3cb9e4c8b2b3570f
+  AdhocSDK: 6e63422c7c598f13a40dffdd00d3271f1fb26e3a
 
 PODFILE CHECKSUM: a972e53825a937273725e6982cda2a37ce5a23eb
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.5.2
