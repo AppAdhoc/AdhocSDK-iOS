@@ -5,7 +5,7 @@
 //  Created by AppAdhoc on 16/10/26.
 //  Copyright © 2016年 AppAdhoc. All rights reserved.
 //
-//  当前 SDK 版本：4.2.0
+//  当前 SDK 版本：4.3.0
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
@@ -39,38 +39,38 @@ NS_CLASS_AVAILABLE_IOS(8_0) @interface AdhocSDK : NSObject
  *  获取后台设置的指定的实验变量的值，实验变量的名字注意与后台保持一致
  *  该方法从 SDK 缓存中直接读取，如需同步获取 flag 值，请使用下面的接口
  *
- *  @param flag_name     adhoc 后台设置的实验变量名字
- *  @param default_value 指定实验变量的默认值
+ *  @param flagName     adhoc 后台设置的实验变量名字
+ *  @param defaultValue 指定实验变量的默认值
  *
  *  @return 根据后台设置的模块的类型，返回 Objective-C 中对应的类型可能为(NSNumber, NSString)
  */
-+ (id)getFlag:(NSString *)flag_name default:(id)default_value;
++ (id)getFlag:(NSString *)flagName default:(id)defaultValue;
 
 /**
  *  异步方式从缓存直接获取实验变量的值，并检查更新本地flags数据
  *
- *  @param flag_name     adhoc后台设置的实验变量名字
- *  @param default_value 指定实验变量的默认值
- *  @param timeout       设置此次网络请求的超时时间，单位为秒(s)，默认1
- *  @param handler       网络执行结束后的相关操作
+ *  @param flagName     adhoc后台设置的实验变量名字
+ *  @param defaultValue 指定实验变量的默认值
+ *  @param timeoutInterval 设置此次网络请求的超时时间，单位为秒(s)，默认1
+ *  @param completionHandler 网络执行结束后的相关操作
  */
-+ (void)getFlagFast:(NSString *)flag_name
-               defaultValue:(id)default_value
-            timeoutInterval:(NSTimeInterval)timeout
-          completionHandler:(void (^)(id flag_value, NSError *error))handler;
++ (void)getFlagFast:(NSString *)flagName
+               defaultValue:(id)defaultValue
+            timeoutInterval:(NSTimeInterval)timeoutInterval
+          completionHandler:(void (^)(id flagValue, NSError *error))completionHandler;
 
 /**
  *  异步方式从服务器直接获取实验变量的值
  *
- *  @param flag_name     adhoc后台设置的实验变量名字
- *  @param default_value 指定实验变量的默认值
- *  @param timeout       设置此次网络请求的超时时间，单位为秒(s)，默认1
- *  @param handler       网络执行结束后的相关操作
+ *  @param flagName     adhoc后台设置的实验变量名字
+ *  @param defaultValue 指定实验变量的默认值
+ *  @param timeoutInterval 设置此次网络请求的超时时间，单位为秒(s)，默认1
+ *  @param completionHandler 网络执行结束后的相关操作
  */
-+ (void)asynchronousGetFlag:(NSString *)flag_name
-               defaultValue:(id)default_value
-            timeoutInterval:(NSTimeInterval)timeout
-          completionHandler:(void (^)(id flag_value, NSError *error))handler;
++ (void)asynchronousGetFlag:(NSString *)flagName
+               defaultValue:(id)defaultValue
+            timeoutInterval:(NSTimeInterval)timeoutInterval
+          completionHandler:(void (^)(id flagValue, NSError *error))completionHandler;
 
 /**
  统计需要的优化指标，用以实现科学有效的测试
