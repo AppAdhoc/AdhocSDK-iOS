@@ -6,15 +6,16 @@ We support all build targets for iOS 8.0 and above. Enable Bitcode, and support 
 
 # 安装
 ### CocoaPods
-说明: AdhocSDK为标准包（编程+可视化） AdhocSDKLite为精简包 (编程)
-1. 在 Podfile 中添加 `pod 'AdhocSDK'` 或 `pod 'AdhocSDKLite'`.
+1. 在 Podfile 中添加 `pod 'AdhocSDK'`.
 2. 执行 `pod install`.
 
 ### 手动安装
 1. 官方下载[最新版SDK](http://doc.appadhoc.com/sdk/iosSDK.html).
-2. 将下载得到的`AdhocSDK.framework`或`AdhocSDKLite.framework`文件添加到指定的工程.
+2. 将下载得到的`AdhocSDK.framework`文件添加到指定的工程.
 3. 添加编译参数 `-ObjC`.
 4. 必要链接库:
+   - Security.framework
+   - CFNetwork.framework
    - libsqlite3.tbd
    - libicucore.tbd (若SDK支持可视化须链接)
 

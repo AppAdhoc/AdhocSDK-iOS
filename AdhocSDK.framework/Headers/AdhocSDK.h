@@ -5,7 +5,7 @@
 //  Created by AppAdhoc on 16/10/26.
 //  Copyright © 2016年 AppAdhoc. All rights reserved.
 //
-//  当前 SDK 版本：5.0.0
+//  当前 SDK 版本：5.0.1
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
@@ -51,7 +51,7 @@ NS_CLASS_AVAILABLE_IOS(8_0) @interface AdhocSDK : NSObject
  *
  *  @param flagName     adhoc后台设置的试验变量名字
  *  @param defaultValue 指定试验变量的默认值
- *  @param timeoutInterval 设置此次网络请求的超时时间，单位为秒(s)，默认 5s
+ *  @param timeoutInterval 设置此次网络请求的超时时间，单位为秒(s)，默认 30s
  *  @param completionHandler 网络执行结束后的相关操作
  */
 + (void)getFlagFast:(NSString *)flagName
@@ -64,7 +64,7 @@ NS_CLASS_AVAILABLE_IOS(8_0) @interface AdhocSDK : NSObject
  *
  *  @param flagName     adhoc后台设置的试验变量名字
  *  @param defaultValue 指定试验变量的默认值
- *  @param timeoutInterval 设置此次网络请求的超时时间，单位为秒(s)，默认 5s
+ *  @param timeoutInterval 设置此次网络请求的超时时间，单位为秒(s)，默认 30s
  *  @param completionHandler 网络执行结束后的相关操作
  */
 + (void)asynchronousGetFlag:(NSString *)flagName
