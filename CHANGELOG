@@ -1,4 +1,7 @@
 change list:
+v5.1.5(2020-03-10)
+	1.接口数据优化
+	2.将 AdhocSDK 内部 UIAlertView 替换为 UIAlertController
 v5.1.4(2019-11-04)
 	1.增加通过变量名称判断设备是否进入试验
 v5.1.3(2019-10-14)
