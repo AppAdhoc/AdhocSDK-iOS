@@ -1,4 +1,6 @@
 change list:
+v5.1.6(2020-03-18)
+	1.添加配置定向条件方法，删除原有 customProperty 属性
 v5.1.5(2020-03-10)
 	1.接口数据优化
 	2.将 AdhocSDK 内部 UIAlertView 替换为 UIAlertController

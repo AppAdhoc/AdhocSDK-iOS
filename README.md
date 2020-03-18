@@ -16,6 +16,9 @@ We support all build targets for iOS 8.0 and above. Enable Bitcode, and support 
 4. 必要链接库:
    - Security.framework
    - CFNetwork.framework
+   - CoreTelephony.framework
+   - AdSupport.framework
+   - AVFoundation.framework
    - libsqlite3.tbd
    - libicucore.tbd (若SDK支持可视化须链接)
 

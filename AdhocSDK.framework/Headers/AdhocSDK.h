@@ -5,7 +5,7 @@
 //  Created by AppAdhoc on 16/10/26.
 //  Copyright © 2016年 AppAdhoc. All rights reserved.
 //
-//  当前 SDK 版本：5.1.5
+//  当前 SDK 版本：5.1.6
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
@@ -23,8 +23,14 @@ NS_CLASS_AVAILABLE_IOS(8_0) @interface AdhocSDKConfig : NSObject
 @property (nonatomic) BOOL durationTrackEnabled; // 是否统计 APP 一次访问的时长，默认为 YES，进行统计
 @property (nonatomic) BOOL reportImmediatelyEnabled; // 是否立即上报数据，默认为 NO，不立即上报
 @property (nonatomic) NSTimeInterval backgroundInterval; // 设置 App 后台允许的最大停留时长，单位秒(s)，在该时间内切换，SDK 认定为同一次访问，默认为 30 分钟(1800s)
-@property (nonatomic, copy) NSDictionary *customProperty; // 设置定向条件
+
 + (id)defaultConfig;
+
+/// 配置定向条件
+/// @param value 定向条件 Value
+/// @param key 定向条件 Key
+- (void)addCustomAttribute:(NSString *)value forKey:(NSString *)key;
+
 @end
 
 /**
