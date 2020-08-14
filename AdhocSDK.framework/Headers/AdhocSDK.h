@@ -5,7 +5,7 @@
 //  Created by AppAdhoc on 16/10/26.
 //  Copyright © 2016年 AppAdhoc. All rights reserved.
 //
-//  当前 SDK 版本：5.2.0
+//  当前 SDK 版本：5.2.1
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
@@ -84,15 +84,28 @@ NS_CLASS_AVAILABLE_IOS(8_0) @interface AdhocSDK : NSObject
           completionHandler:(void (^)(id flagValue, NSError *error))completionHandler;
 
 /// 统计需要的优化指标，用以实现科学有效的测试
-/// @param stat_name 后台设置的优化指标，名字须保持一致
-/// @param stat_value 当前优化指标单次统计的权重
-+ (void)track:(NSString *)stat_name value:(NSNumber *)stat_value;
+/// @param key 后台设置的优化指标，名字须保持一致
+/// @param value 当前优化指标单次统计的权重
++ (void)track:(NSString *)key value:(NSNumber *)value;
 
 /// 统计需要的优化指标，用以实现科学有效的测试
-/// @param stat_name 后台设置的优化指标，名字须保持一致
-/// @param stat_value 当前优化指标单次统计的权重
-/// @param stat_attribute 当前数据的定向条件
-+ (void)track:(NSString *)stat_name value:(NSNumber *)stat_value attribute:(NSDictionary *)stat_attribute;
+/// @param key 后台设置的优化指标，名字须保持一致
+/// @param value 当前优化指标单次统计的权重
+/// @param userAttribute 当前数据的定向条件
++ (void)track:(NSString *)key value:(NSNumber *)value attribute:(NSDictionary *)userAttribute;
+
+/// 统计需要的优化指标，用以实现科学有效的测试，以 key 和 tag 组成唯一标识，每个唯一标识只统计一次
+/// @param key 后台设置的优化指标，名字须保持一致
+/// @param value 当前优化指标单次统计的权重
+/// @param tag 当前优化指标标签
++ (void)distinctTrack:(NSString *)key value:(NSNumber *)value tag:(NSString *)tag;
+
+/// 统计需要的优化指标，用以实现科学有效的测试，以 key 和 tag 组成唯一标识，每个唯一标识只统计一次
+/// @param key 后台设置的优化指标，名字须保持一致
+/// @param value 当前优化指标单次统计的权重
+/// @param tag 当前优化指标标签
+/// @param userAttribute 当前数据的定向条件
++ (void)distinctTrack:(NSString *)key value:(NSNumber *)value tag:(NSString *)tag attribute:(NSDictionary *)userAttribute;
 
 /**
  *  获取当前设备所在试验的试验名列表
