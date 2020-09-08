@@ -5,7 +5,7 @@
 //  Created by AppAdhoc on 16/10/26.
 //  Copyright © 2016年 AppAdhoc. All rights reserved.
 //
-//  当前 SDK 版本：5.2.1
+//  当前 SDK 版本：5.2.2
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
@@ -16,10 +16,11 @@
  */
 NS_CLASS_AVAILABLE_IOS(8_0) @interface AdhocSDKConfig : NSObject
 @property (nonatomic, copy) NSString *appKey;  /// 官网申请的 key，必填项
-@property (nonatomic, copy) NSString *clientID; /// 自定义 clientid，如无特殊需求，不需要设置
-@property (nonatomic) BOOL enableDebugAssist; /// 是否显示调试按钮，默认为 NO，不显示（若显示，getFlag 与 track 接口访问实时处理，设置的时间间隔无效）
+@property (nonatomic, copy) NSString *clientID;  /// 自定义 clientID，如无特殊需求，不需要设置
+@property (nonatomic) BOOL enableDebugAssist;  /// 是否显示调试按钮，默认为 NO，不显示（若显示，getFlag 与 track 接口访问实时处理，设置的时间间隔无效）
 @property (nonatomic) BOOL crashTrackEnabled;  /// 是否统计 crash 次数，默认为 NO，不进行统计
-@property (nonatomic) BOOL reportImmediatelyEnabled; /// 是否立即上报数据，默认为 NO，不立即上报
+@property (nonatomic) BOOL reportImmediatelyEnabled;  /// 是否立即上报数据，默认为 NO，不立即上报
+@property (nonatomic) BOOL supportBackend;  /// 是否支持后端提供的试验数据
 
 /// 默认配置
 + (id)defaultConfig;
@@ -83,28 +84,28 @@ NS_CLASS_AVAILABLE_IOS(8_0) @interface AdhocSDK : NSObject
             timeoutInterval:(NSTimeInterval)timeoutInterval
           completionHandler:(void (^)(id flagValue, NSError *error))completionHandler;
 
-/// 统计需要的优化指标，用以实现科学有效的测试
-/// @param key 后台设置的优化指标，名字须保持一致
-/// @param value 当前优化指标单次统计的权重
+/// 统计优化指标
+/// @param key key对应AppAdhoc控制台定义的优化指标名称
+/// @param value 统计数值
 + (void)track:(NSString *)key value:(NSNumber *)value;
 
-/// 统计需要的优化指标，用以实现科学有效的测试
-/// @param key 后台设置的优化指标，名字须保持一致
-/// @param value 当前优化指标单次统计的权重
-/// @param userAttribute 当前数据的定向条件
+/// 统计优化指标
+/// @param key key对应AppAdhoc控制台定义的优化指标名称
+/// @param value 统计数值
+/// @param userAttribute 用户自定义属性
 + (void)track:(NSString *)key value:(NSNumber *)value attribute:(NSDictionary *)userAttribute;
 
-/// 统计需要的优化指标，用以实现科学有效的测试，以 key 和 tag 组成唯一标识，每个唯一标识只统计一次
-/// @param key 后台设置的优化指标，名字须保持一致
-/// @param value 当前优化指标单次统计的权重
-/// @param tag 当前优化指标标签
+/// 统计优化指标(根据参数tag去重)
+/// @param key key对应AppAdhoc控制台定义的优化指标名称
+/// @param value 统计数值
+/// @param tag 用户定义的标签（用于优化指标上报去重）
 + (void)distinctTrack:(NSString *)key value:(NSNumber *)value tag:(NSString *)tag;
 
-/// 统计需要的优化指标，用以实现科学有效的测试，以 key 和 tag 组成唯一标识，每个唯一标识只统计一次
-/// @param key 后台设置的优化指标，名字须保持一致
-/// @param value 当前优化指标单次统计的权重
-/// @param tag 当前优化指标标签
-/// @param userAttribute 当前数据的定向条件
+/// 统计优化指标(根据参数tag去重)
+/// @param key key对应AppAdhoc控制台定义的优化指标名称
+/// @param value 统计数值
+/// @param tag 用户定义的标签（用于优化指标上报去重）
+/// @param userAttribute 用户自定义属性
 + (void)distinctTrack:(NSString *)key value:(NSNumber *)value tag:(NSString *)tag attribute:(NSDictionary *)userAttribute;
 
 /**
@@ -135,6 +136,10 @@ NS_CLASS_AVAILABLE_IOS(8_0) @interface AdhocSDK : NSObject
 /// @param request 加载链接的request
 /// @param webView 当前的WKWebView
 + (BOOL)adhocWKWebViewExecute:(NSURLRequest *)request webView:(WKWebView *)webView;
+
+/// 设置试验数据
+/// @param experimentsArray 试验数据数组
++ (void)setExperiments:(NSArray *)experimentsArray;
 
 @end
 
