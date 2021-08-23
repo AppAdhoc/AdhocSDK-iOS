@@ -5,7 +5,7 @@
 //  Created by AppAdhoc on 16/10/26.
 //  Copyright © 2016年 AppAdhoc. All rights reserved.
 //
-//  当前 SDK 版本：5.2.5
+//  当前 SDK 版本：5.2.6
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
@@ -109,7 +109,7 @@ NS_CLASS_AVAILABLE_IOS(8_0) @interface AdhocSDK : NSObject
 + (void)distinctTrack:(NSString *)key value:(NSNumber *)value tag:(NSString *)tag attribute:(NSDictionary *)userAttribute;
 
 /**
- *  获取当前设备所在试验的试验名列表
+ *  获取当前设备所在试验的试验列表
  *  1.数组中只有 CONTROL，代表未进入任何试验
  *  2.数组中存在一个或多个字典，代表进入一个或多个试验
  *   {
@@ -119,6 +119,16 @@ NS_CLASS_AVAILABLE_IOS(8_0) @interface AdhocSDK : NSObject
  *  @return 试验名数组
  */
 + (NSArray *)getCurrentExperiments;
+
+/// 根据试验变量名称获取当前设备所在试验的试验列表
+/// 1.数组中只有 CONTROL，代表未进入任何试验
+/// 2.数组中存在一个或多个字典，代表进入一个或多个试验
+///  {
+///     id = "试验版本 ID";
+///     name = "试验名称";
+///  }
+/// @param flagName 试验变量名称
++ (NSArray *)getCurrentExperimentsByFlagName:(NSString *)flagName;
 
 /// 根据 flag 名称获取该 flag 名称所对应的试验是否加入了试验
 /// @param flagName  flag 名称

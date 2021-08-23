@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/AdhocSDK.h</key>
 		<data>
-		rpLqduCm6EEjuD68Lmz/8Di8VIE=
+		sycRcSbsiWgqGxa8NdhMcLp+Clg=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -23,11 +23,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			rpLqduCm6EEjuD68Lmz/8Di8VIE=
+			sycRcSbsiWgqGxa8NdhMcLp+Clg=
 			</data>
 			<key>hash2</key>
 			<data>
-			zTgZszVCYTEqIsORFJnuFekWU8L4oVvggDj18FlzTV0=
+			CStiLBbtDvzIQiM15juyFarr7ShxxFIyNlLtJUmydNk=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
